@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Apoya esta causa con una donación segura.">
+  <meta name="theme-color" content="#0b3b82">
+  <title>Apoya esta causa | LaCardio</title>
+  <link rel="preload" as="image" href="assets/campana.jpg">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Inicio">
+      <img src="assets/logo.png" alt="LaCardio">
+    </a>
+  </header>
+
+  <main class="page">
+    <section class="campaign" aria-labelledby="donation-title">
+      <img
+        class="campaign-image"
+        src="assets/campana.jpg"
+        alt="Campaña de donación para apoyar el corazón de los niños en Colombia"
+        width="1179"
+        height="1855"
+      >
+
+      <div class="donation-card">
+        <div class="section-heading">
+          <h1 id="donation-title">Quiero ayudar con mi aportación</h1>
+          <p>Elige cuánto quieres donar</p>
+        </div>
+
+        <div class="amount-grid" aria-label="Montos de donación">
+          <a class="amount-button" href="https://new-checkout.epayco.co/checkout/6a9f49178086ec20539e15da" rel="noopener">
+            $200.000
+          </a>
+          <a class="amount-button" href="https://new-checkout.epayco.co/checkout/6a9f493296af39c0209d0d66" rel="noopener">
+            $500.000
+          </a>
+          <a class="amount-button" href="https://new-checkout.epayco.co/checkout/6a9f494696af39c0209d0edd" rel="noopener">
+            $1.000.000
+          </a>
+          <a class="amount-button" href="https://new-checkout.epayco.co/checkout/6a9f496496af39c0209d10ff" rel="noopener">
+            $2.000.000
+          </a>
+          <a class="amount-button" href="https://new-checkout.epayco.co/checkout/6a9f497d96af39c0209d12f2" rel="noopener">
+            $4.000.000
+          </a>
+          <button class="amount-button amount-button--other" type="button" id="otherAmountButton" aria-expanded="false" aria-controls="otherAmountPanel">
+            Otro valor
+          </button>
+        </div>
+
+        <section class="other-panel" id="otherAmountPanel" hidden aria-labelledby="other-title">
+          <div class="form-heading">
+            <h2 id="other-title">Solicitar enlace de pago</h2>
+            <p>Completa tus datos para gestionar una donación por otro valor.</p>
+          </div>
+
+          <!--
+            IMPORTANTE: reemplaza REEMPLAZAR_CON_TU_ID por el ID real de tu formulario
+            creado en Formspree. El correo de destino se configura en Formspree,
+            no se guarda ninguna contraseña o API key en este sitio.
+          -->
+          <form
+            id="donationForm"
+            action="https://formspree.io/f/REEMPLAZAR_CON_TU_ID"
+            method="POST"
+            novalidate
+          >
+            <input type="hidden" name="_subject" value="Nueva solicitud de donación">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form-field">
+              <label for="fullName">Nombre completo</label>
+              <input id="fullName" name="Nombre" type="text" autocomplete="name" maxlength="120" required>
+              <small class="field-error" data-error-for="fullName"></small>
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Número de celular</label>
+              <input id="phone" name="Celular" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" required>
+              <small class="field-error" data-error-for="phone"></small>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="Correo" type="email" autocomplete="email" maxlength="160" required>
+              <small class="field-error" data-error-for="email"></small>
+            </div>
+
+            <div class="form-field">
+              <label for="amount">Valor que desea donar</label>
+              <div class="currency-input">
+                <span aria-hidden="true">$</span>
+                <input id="amount" name="Valor solicitado" type="number" inputmode="decimal" min="1" step="1" required>
+              </div>
+              <small class="field-error" data-error-for="amount"></small>
+            </div>
+
+            <div class="privacy-notice">
+              <strong>Uso de tus datos</strong>
+              <p>
+                Al enviar tus datos autorizas el uso de esta información para gestionar tu solicitud
+                de donación y recibir el enlace de pago.
+              </p>
+            </div>
+
+            <button class="submit-button" type="submit" id="submitButton">
+              Solicitar enlace de pago
+            </button>
+
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Tu aporte ayuda a apoyar esta causa.</p>
+  </footer>
+</body>
+</html>
